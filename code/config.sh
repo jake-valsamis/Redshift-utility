@@ -16,7 +16,7 @@ else
 with_everyone=$2
 fi
 
-target_capsule_id="85c320b6-69f8-45db-a91a-819f423f58c3"
+target_capsule_id="d5ea9dd6-d61d-4657-95b8-0ece6303a63a3"
 
 data_raw='{ 
   "capsule_id": "'"$target_capsule_id"'",
