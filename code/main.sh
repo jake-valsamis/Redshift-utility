@@ -8,28 +8,29 @@ data_raw='{
   "parameters": ["'"$sql_query"'", "'"$database"'", "'"$host"'", "'"$port"'", "'"$file_name"'"]
 }'
 
-curl -H "Content-Type: application/json" -u ${CUSTOM_KEY}: -X POST https://acmecorp-cfn-demo.codeocean.com/api/v1/computations --data-raw "$data_raw"
+start_computation=$(curl -H "Content-Type: application/json" -u ${CUSTOM_KEY}: -X POST https://acmecorp-cfn-demo.codeocean.com/api/v1/computations --data-raw "$data_raw")
 
+computation_id=$(echo $start_computation | /usr/bin/jq --raw-output '.id')
 
 #must wait for state to reach completed before proceeding 
-# while true 
-# do 
-#     get_computation=$(curl -H "Content-Type: application/json" -u ${CUSTOM_KEY}: -X GET https://acmecorp-cfn-demo.codeocean.com/api/v1/computations/${computation_id})
-#     computation_state=$(echo $get_computation | /usr/bin/jq --raw-output '.state')
-#     if [[ $computation_state == 'failed' ]]
-#     then
-#         echo "Computation ${computation_id} failed"
-#         exit 1 
-#     fi
-#     if [[ $computation_state == 'completed' ]]
-#     then
-#         echo "Computation ${computation_id} completed"
-#         break 
-#     fi
-#     sleep 10
-# done 
+while true 
+do 
+    get_computation=$(curl -H "Content-Type: application/json" -u ${CUSTOM_KEY}: -X GET https://acmecorp-cfn-demo.codeocean.com/api/v1/computations/${computation_id})
+    computation_state=$(echo $get_computation | /usr/bin/jq --raw-output '.state')
+    if [[ $computation_state == 'failed' ]]
+    then
+        echo "Computation ${computation_id} failed"
+        exit 1 
+    fi
+    if [[ $computation_state == 'completed' ]]
+    then
+        echo "Computation ${computation_id} completed"
+        break 
+    fi
+    sleep 10
+done 
 
-# #create data asset from result
+#create data asset from result
 # asset_description="Subset of tickit database in .csv format"
 # mount_name="${table_to_fetch}_table"
 # redshift_db="sample_data_dev"
