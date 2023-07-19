@@ -2,4 +2,28 @@
 set -ex
 
 # This is the master script for the capsule. When you click "Reproducible Run", the code in this file will execute.
-bash main.sh "$@"
+python -u main.py "$@"
+
+# The previous version of this file was commented-out and follows below:
+#
+# bash main.sh "$@"
+# 
+# # The previous version of this file was commented-out and follows below:
+# #
+# # jupyter nbconvert \
+# # 	--to 'html' \
+# # 	--ExecutePreprocessor.allow_errors=True \
+# # 	--ExecutePreprocessor.timeout=-1 \
+# # 	--FilesWriter.build_directory=../results \
+# # 	--execute query_redshift.ipynb
+# # 
+# # # The previous version of this file was commented-out and follows below:
+# # #
+# # # python -u main.py "$@"
+# # # 
+# # # # The previous version of this file was commented-out and follows below:
+# # # #
+# # # # bash main.sh "$@"
+# # # 
+# # 
+# 

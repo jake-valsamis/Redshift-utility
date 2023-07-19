@@ -1,5 +1,5 @@
 metadata_version: 1
-name: Query Redshift and Fetch Data
+name: Redshift Data Connector
 description: "Query Redshift and fetch data from the tickit table schema. Access provided
   using database secrets. \n\nThe app panel provides users with the ability to choose
   which table to fetch, and whether or not to share the result data asset with the
