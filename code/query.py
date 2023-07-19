@@ -19,6 +19,7 @@ else:
 
 if host == "Default Host":
     host = "acmecorp-cfn-demo-endpoint-endpoint-tvuxknj0hc5lueze2pff.147080935342.us-east-1.redshift-serverless.amazonaws.com"
+    
 #set up and establish connection
 client = boto3.client('redshift-serverless')
 

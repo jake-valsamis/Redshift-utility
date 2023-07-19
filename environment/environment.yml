@@ -1,8 +1,6 @@
 environment_version: 1
 credentials:
-- type: aws
-  id: CgprEkfsZ6iaiQ
-  description: AWS Assumable Role - acmecorpDemoRedshiftAccess
-  access_key_id: AWS_ACCESS_KEY_ID
-  secret_access_key: AWS_SECRET_ACCESS_KEY
-  region: AWS_DEFAULT_REGION
+- type: general
+  id: o1di7WYUFaeJ0S
+  description: Code Ocean PAT
+  value: CUSTOM_KEY
