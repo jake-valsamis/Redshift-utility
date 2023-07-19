@@ -4,25 +4,21 @@ import pandas as pd
 import redshift_connector
 import sys
 
-if (len(sys.argv) >= 3):
-    query = str(sys.argv[1])
-    database = str(sys.argv[2])
-    host = str(sys.argv[3])
+if (len(sys.argv) >= 4):
+    query = sys.argv[1]
+    database = sys.argv[2]
+    host = sys.argv[3]
     port = int(sys.argv[4])
-    host = str(sys.argv[3])
+    file_name = sys.argv[5]
 else:
     query = "SELECT * FROM tickit.users"
     database = "sample_data_dev"
     host = "acmecorp-cfn-demo-endpoint-endpoint-tvuxknj0hc5lueze2pff.147080935342.us-east-1.redshift-serverless.amazonaws.com"
     port = 5439
     file_name = "users_table"
-#from config import table_to_fetch
-#table_to_fetch = "users"
-#if (len(sys.argv) >= 1):
-#    table_to_fetch = str(sys.argv[1])
-#else:
-#    table_to_fetch = "users"
 
+if host == "Default Host":
+    host = "acmecorp-cfn-demo-endpoint-endpoint-tvuxknj0hc5lueze2pff.147080935342.us-east-1.redshift-serverless.amazonaws.com"
 #set up and establish connection
 client = boto3.client('redshift-serverless')
 
