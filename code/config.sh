@@ -57,12 +57,8 @@ else
   tags="${7}"
 fi
 
+#format tags for API call
 IFS=':' read -ra tags2 <<< "$tags"
 data_asset_tags=${tags2[@]}
 data_asset_tags=$(sed -E 's/[^[:space:]]+/"&"/g' <<< "$data_asset_tags")
 data_asset_tags=$(echo ${data_asset_tags// /, })
-# for i in "${data_asset_tags[@]:1}"; do
-#   #data_asset_tags="${data_asset_tags}, \"${i}\""
-#   echo $i
-#   echo 
-# done

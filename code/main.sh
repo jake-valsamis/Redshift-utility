@@ -30,14 +30,9 @@ do
     sleep 10
 done 
 
-#create data asset from result
-# asset_description="Subset of tickit database in .csv format"
-# mount_name="${table_to_fetch}_table"
-# redshift_db="sample_data_dev"
-
 data_raw='{
     "name": "'"$data_asset_name"'",
-    "description": "a description",
+    "description": "Data asset automatically generated using Redshift connector capsules",
     "mount": "'"$folder_name"'",
     "tags": ['"$data_asset_tags"'],
     "source": {
@@ -46,6 +41,5 @@ data_raw='{
             }
         }
 }'
-echo $data_raw
-# create_data_asset=$(curl -H "Content-Type: application/json" -u ${CUSTOM_KEY}: -X POST https://${co_domain}/api/v1/data_assets --data-raw "$data_raw")
+
 curl -H "Content-Type: application/json" -u ${CUSTOM_KEY}: -X POST https://${co_domain}/api/v1/data_assets --data-raw "$data_raw"
