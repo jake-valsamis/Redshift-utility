@@ -1,9 +1,7 @@
 metadata_version: 1
 name: Redshift Data Connector - Data Asset Generation
-description: "Query Redshift and fetch data from the tickit table schema. Access provided
-  using database secrets. \n\nThe app panel provides users with the ability to choose
-  which table to fetch, and whether or not to share the result data asset with the
-  whole organization."
+description: This capsule will run the Redshift Data Connector capsule to query a
+  Redshift database and automatically create a data asset from the result.
 tags:
 - redshift
 - database
