@@ -7,7 +7,7 @@
 This is a capsule uses the Code Ocean API to run its companion capsule, **Redshift Data Connector**, and automatically create a data asset from the result.
 
 Note: In order to use this capsule, you must change two variables in config.sh:
-- set co_domain to your Code Ocean co_domain
+- set co_domain to your Code Ocean deployment's domain
 - set target_capsule_id to the ID of your newly duplicated **Redshift Data Connector** capsule
 
 There is no input or output data for this capsule. 
