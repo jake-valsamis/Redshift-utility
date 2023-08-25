@@ -5,7 +5,7 @@ source ./config.sh
 #run Redshift Data Connector Capsule
 data_raw='{ 
   "capsule_id": "'"$target_capsule_id"'",
-  "parameters": ["'"$sql_query"'", "'"$database"'", "'"$host"'", "'"$port"'", "'"$file_name"'"]
+  "parameters": ["'"$sql_query"'", "'"$database"'", "'"$host"'", "'"$port"'", "'"$file_name"'", "'"$output_format"'"]
 }'
 
 start_computation=$(curl -H "Content-Type: application/json" -u ${CUSTOM_KEY}: -X POST https://${co_domain}/api/v1/computations --data-raw "$data_raw")

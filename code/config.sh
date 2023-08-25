@@ -40,21 +40,27 @@ else
 fi
 
 if [ -z "${6}" ]; then
+  output_format="csv"
+else
+  output_format="${6}"
+fi
+
+if [ -z "${7}" ]; then
   data_asset_name="Users table from tickit schema"
 else
-  data_asset_name="${6}"
+  data_asset_name="${7}"
 fi
 
-if [ -z "${7}" ]; then
+if [ -z "${8}" ]; then
   folder_name="users_table"
 else
-  folder_name="${7}"
+  folder_name="${8}"
 fi
 
-if [ -z "${7}" ]; then
+if [ -z "${9}" ]; then
   tags="Redshift:users:csv"
 else
-  tags="${7}"
+  tags="${9}"
 fi
 
 #format tags for API call
